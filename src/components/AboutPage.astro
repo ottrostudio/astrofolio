@@ -1,0 +1,163 @@
+---
+import { getCopy } from "@/data/copy";
+
+interface Props {
+  lang?: string;
+}
+const lang = Astro.props.lang ?? "es";
+const t = getCopy(lang);
+const a = t.aboutPage;
+---
+
+<article class="about-page">
+  {/* HERO */}
+  <section class="px-6 md:px-10 pt-32 md:pt-48 pb-16 md:pb-24">
+    <div class="flex items-baseline gap-6 mb-8">
+      <span class="micro text-muted" data-reveal>
+        {a.index} — {a.label}
+      </span>
+    </div>
+
+    <h1
+      class="font-display text-[clamp(3rem,10vw,9rem)] leading-none uppercase"
+    >
+      <span class="mask-line"
+        ><span class="reveal-line block">{a.title1}</span></span
+      >
+      <span class="mask-line"
+        ><span class="reveal-line block">{a.title2}</span></span
+      >
+    </h1>
+  </section>
+
+  {/* BIO */}
+  <section class="px-6 md:px-10 pb-24 md:pb-32">
+    <div class="grid md:grid-cols-12 gap-8 md:gap-12">
+      <div class="md:col-span-3">
+        <span class="micro text-muted" data-reveal>{a.label}</span>
+      </div>
+      <div class="md:col-span-9 flex flex-col gap-6 max-w-3xl">
+        {
+          a.bio.map((paragraph) => (
+            <p class="text-lg md:text-2xl leading-relaxed" data-reveal>
+              {paragraph}
+            </p>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* SERVICIOS */}
+  <section
+    class="px-6 md:px-10 pb-24 md:pb-32 border-t border-border pt-16 md:pt-24"
+  >
+    <div class="grid md:grid-cols-12 gap-8 md:gap-12">
+      <div class="md:col-span-3">
+        <span class="micro text-muted" data-reveal>{a.servicesLabel}</span>
+      </div>
+      <div class="md:col-span-9">
+        <ul class="flex flex-col" data-reveal-stagger>
+          {
+            a.services.map((service, i) => (
+              <li class="flex items-baseline gap-6 py-5 md:py-6 border-b border-border">
+                <span class="font-display text-[clamp(1.5rem,4vw,3rem)] leading-none text-accent">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span class="font-display text-[clamp(1.75rem,4.5vw,3.5rem)] leading-none uppercase">
+                  {service}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {/* STACK */}
+  <section class="px-6 md:px-10 pb-24 md:pb-32">
+    <div class="grid md:grid-cols-12 gap-8 md:gap-12">
+      <div class="md:col-span-3">
+        <span class="micro text-muted" data-reveal>{a.stackLabel}</span>
+      </div>
+      <div class="md:col-span-9">
+        <ul class="flex flex-wrap gap-3" data-reveal-stagger>
+          {
+            a.stack.map((tech, i) => (
+              <li
+                class={`px-4 py-2 border rounded-full micro ${i % 2 === 0 ? "border-border" : "border-accent2/40"}`}
+              >
+                {tech}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {/* CÓMO TRABAJO */}
+  <section
+    class="px-6 md:px-10 pb-24 md:pb-32 border-t border-border pt-16 md:pt-24"
+  >
+    <div class="grid md:grid-cols-12 gap-8 md:gap-12 mb-16 md:mb-24">
+      <div class="md:col-span-3">
+        <span class="micro text-muted" data-reveal>{a.processLabel}</span>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-16 md:gap-24">
+      {
+        a.process.map((step, i) => (
+          <div
+            class="grid md:grid-cols-12 gap-8 md:gap-12 items-start"
+            data-reveal
+          >
+            <div class="md:col-span-3">
+              <span class="font-display text-[clamp(3rem,6vw,5rem)] leading-none text-accent">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+            </div>
+            <div class="md:col-span-9">
+              <h3 class="font-display text-[clamp(1.5rem,3vw,2.5rem)] leading-tight uppercase mb-4">
+                {step.title}
+              </h3>
+              <p class="text-muted text-base md:text-lg leading-relaxed max-w-2xl">
+                {step.text}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  {/* CTA */}
+  <section class="px-6 md:px-10 py-24 md:py-32 border-t border-border">
+    <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-end">
+      <div class="md:col-span-3">
+        <span class="micro text-muted" data-reveal>{a.cta.label}</span>
+      </div>
+      <div class="md:col-span-9">
+        <a
+          href={`/${lang}/#contact`}
+          class="group inline-flex items-center gap-6"
+          data-reveal
+        >
+          <h2
+            class="font-display text-[clamp(2.5rem,8vw,7rem)] leading-none uppercase group-hover:text-accent transition-colors"
+          >
+            <span class="mask-line">
+              <span class="reveal-line block">{a.cta.link}</span>
+            </span>
+          </h2>
+          <span
+            class="text-[clamp(2.5rem,8vw,7rem)] leading-none text-accent transition-transform group-hover:translate-x-4"
+            >→</span
+          >
+        </a>
+      </div>
+    </div>
+  </section>
+</article>

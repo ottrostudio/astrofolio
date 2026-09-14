@@ -1,0 +1,44 @@
+---
+import { getCopy } from "@/data/copy";
+
+const lang = Astro.props.lang ?? "es";
+const t = getCopy(lang);
+---
+
+<section
+  class="min-h-screen flex flex-col justify-center px-6 md:px-10 pt-32 pb-16"
+>
+  <h1
+    class="font-display leading-[0.85] tracking-[-0.02em] text-center text-hero uppercase"
+  >
+    <span class="mask-line"
+      ><span class="hero-line block">{t.hero.l1}</span></span
+    >
+    <span class="mask-line"
+      ><span class="hero-line block">{t.hero.l2}</span></span
+    >
+    <span class="mask-line"
+      ><span class="hero-line block">{t.hero.l3}</span></span
+    >
+  </h1>
+
+  <div class="mt-20 flex items-center gap-4 justify-center">
+    <span class="hero-rule block h-px w-24 bg-accent2"></span>
+    <span class="hero-dot block w-2 h-2 rounded-full bg-accent"></span>
+  </div>
+
+  <ul
+    class="hero-meta mt-16 flex flex-wrap justify-center gap-x-8 gap-y-3 micro text-muted"
+  >
+    {
+      t.hero.meta.map((item, i) => (
+        <li class="flex items-center gap-3">
+          <span
+            class={`w-1.5 h-1.5 rounded-full ${i % 2 === 0 ? "bg-accent" : "bg-accent2"}`}
+          />
+          {item}
+        </li>
+      ))
+    }
+  </ul>
+</section>

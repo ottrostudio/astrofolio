@@ -1,0 +1,31 @@
+---
+import "@/styles/global.css";
+import Preloader from "@/components/Preloader.astro";
+import MobileMenu from "@/components/MobileMenu.astro";
+
+interface Props {
+  title?: string;
+  lang?: string;
+}
+
+const { title = "OTTRO.studio", lang = "es" } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang} style="background:#0B1220; color:#F5F2ED;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Preloader />
+    <MobileMenu />
+    <slot />
+
+    <script>
+      import "@/scripts/boot";
+    </script>
+  </body>
+</html>

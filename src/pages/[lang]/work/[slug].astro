@@ -1,0 +1,39 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Nav from "@/components/Nav.astro";
+import Footer from "@/components/Footer.astro";
+import WorkCase from "@/components/WorkCase.astro";
+import { getCopy } from "@/data/copy";
+
+export function getStaticPaths() {
+  const langs = ["es", "en"];
+  const paths = [];
+
+  for (const lang of langs) {
+    const t = getCopy(lang);
+    for (const project of t.work.projects) {
+      paths.push({
+        params: { lang, slug: project.slug },
+        props: { project, lang },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { lang, slug } = Astro.params;
+const { project } = Astro.props;
+const t = getCopy(lang);
+
+// Encontrar el siguiente proyecto
+const nextProject = t.work.projects.find((p) => p.slug === project.next);
+---
+
+<Layout lang={lang} title={`${project.name} — OTTRO.studio`}>
+  <Nav lang={lang} />
+  <main>
+    <WorkCase project={project} nextProject={nextProject} lang={lang} />
+  </main>
+  <Footer lang={lang} />
+</Layout>

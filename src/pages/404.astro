@@ -1,0 +1,165 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Nav from "@/components/Nav.astro";
+import Footer from "@/components/Footer.astro";
+---
+
+<Layout title="404 — OTTRO.studio" lang="es">
+  <Nav lang="es" />
+
+  <main class="min-h-screen flex items-center px-6 md:px-10 pt-32 pb-16">
+    <div class="w-full max-w-6xl mx-auto">
+      <span class="micro text-muted block mb-8" data-reveal> 404 — Error </span>
+
+      <h1
+        class="font-display uppercase text-center"
+        style="font-size: clamp(8rem, 42vw, 34rem); line-height: 0.8; letter-spacing: -0.06em;"
+      >
+        <span class="mask-line">
+          <span class="reveal-line block">
+            4<span
+              class="text-accent inline-block"
+              style="transform: translateY(-0.18em); font-size: 0.9em;">●</span
+            >4
+          </span>
+        </span>
+      </h1>
+
+      <div class="mt-16 md:mt-24 grid md:grid-cols-12 gap-8 md:gap-12">
+        <div class="md:col-span-6 md:col-start-7">
+          <h2
+            class="font-display text-[clamp(1.5rem,3vw,2.5rem)] leading-tight uppercase mb-6"
+            data-reveal
+          >
+            <span class="mask-line"
+              ><span class="reveal-line block" data-404-title-es
+                >Página no encontrada</span
+              ></span
+            >
+          </h2>
+
+          <p
+            class="text-muted text-base md:text-lg leading-relaxed mb-10"
+            data-reveal
+            data-404-text-es
+          >
+            Igual te has equivocado de URL, o esta página nunca existió. Pasa en
+            las mejores familias.
+          </p>
+
+          <h2
+            class="hidden font-display text-[clamp(1.5rem,3vw,2.5rem)] leading-tight uppercase mb-6"
+            data-404-title-en
+          >
+            Page not found
+          </h2>
+
+          <p
+            class="hidden text-muted text-base md:text-lg leading-relaxed mb-10"
+            data-404-text-en
+          >
+            Maybe you got the URL wrong, or this page never existed. Happens to
+            the best of us.
+          </p>
+
+          <ul class="flex flex-col gap-4" data-reveal-stagger>
+            <li>
+              <a
+                href="/es"
+                class="group inline-flex items-center gap-4 micro hover:text-accent transition-colors"
+                data-404-link-es
+              >
+                <span
+                  class="w-8 h-px bg-current transition-all group-hover:w-16"
+                ></span>
+                <span>Volver al inicio</span>
+                <span class="transition-transform group-hover:translate-x-1"
+                  >→</span
+                >
+              </a>
+              <a
+                href="/en"
+                class="group hidden items-center gap-4 micro hover:text-accent transition-colors"
+                data-404-link-en
+              >
+                <span
+                  class="w-8 h-px bg-current transition-all group-hover:w-16"
+                ></span>
+                <span>Back home</span>
+                <span class="transition-transform group-hover:translate-x-1"
+                  >→</span
+                >
+              </a>
+            </li>
+            <li>
+              <a
+                href="/es/work"
+                class="group inline-flex items-center gap-4 micro hover:text-accent transition-colors"
+                data-404-work-es
+              >
+                <span
+                  class="w-8 h-px bg-current transition-all group-hover:w-16"
+                ></span>
+                <span>Ver proyectos</span>
+                <span class="transition-transform group-hover:translate-x-1"
+                  >→</span
+                >
+              </a>
+              <a
+                href="/en/work"
+                class="group hidden items-center gap-4 micro hover:text-accent transition-colors"
+                data-404-work-en
+              >
+                <span
+                  class="w-8 h-px bg-current transition-all group-hover:w-16"
+                ></span>
+                <span>View work</span>
+                <span class="transition-transform group-hover:translate-x-1"
+                  >→</span
+                >
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer lang="es" />
+
+  <script is:inline>
+    // Detectar idioma del navegador y ajustar contenido
+    (function () {
+      const userLang = (navigator.language || "es").toLowerCase();
+      const isEnglish = userLang.startsWith("en");
+
+      if (!isEnglish) return;
+
+      // Cambiar textos
+      const titleEs = document.querySelector("[data-404-title-es]");
+      const textEs = document.querySelector("[data-404-text-es]");
+      const titleEn = document.querySelector("[data-404-title-en]");
+      const textEn = document.querySelector("[data-404-text-en]");
+
+      if (titleEs)
+        titleEs.parentElement?.parentElement?.classList.add("hidden");
+      if (textEs) textEs.classList.add("hidden");
+      if (titleEn) titleEn.classList.remove("hidden");
+      if (textEn) textEn.classList.remove("hidden");
+
+      // Cambiar links
+      const homeEs = document.querySelector("[data-404-link-es]");
+      const homeEn = document.querySelector("[data-404-link-en]");
+      const workEs = document.querySelector("[data-404-work-es]");
+      const workEn = document.querySelector("[data-404-work-en]");
+
+      homeEs?.classList.add("hidden");
+      homeEn?.classList.remove("hidden");
+      workEs?.classList.add("hidden");
+      workEn?.classList.remove("hidden");
+
+      // Actualizar el título de la página
+      document.title = "404 — OTTRO.studio";
+    })();
+  </script>
+</Layout>

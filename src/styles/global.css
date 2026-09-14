@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@import "@fontsource/anton";
+@import "@fontsource-variable/inter-tight";
+
+@theme {
+  --color-bg: #0b1220;
+  --color-elev: #0f1a2e;
+  --color-text: #f5f2ed;
+  --color-muted: rgba(245, 242, 237, 0.55);
+  --color-faint: rgba(245, 242, 237, 0.3);
+  --color-border: rgba(245, 242, 237, 0.08);
+  --color-accent: #ff5b1f;
+  --color-accent2: #5eead4;
+
+  --font-display: "Anton", sans-serif;
+  --font-text: "Inter Tight Variable", sans-serif;
+
+  --text-hero: clamp(4rem, 14vw, 14rem);
+  --text-h1: clamp(3rem, 9vw, 8rem);
+  --text-h2: clamp(2rem, 5vw, 4rem);
+  --text-micro: 0.75rem;
+}
+
+@layer base {
+  html {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+}
+
+/* Utilidad para el tracking amplio tipo Dragon Rouge */
+.micro {
+  font-size: var(--text-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 500;
+}
+
+.mask-line {
+  overflow: hidden;
+  display: block;
+  padding-top: 0.25em;
+  margin-top: -0.15em;
+}
+
+/* Alias para usar en reveals de headings */
+.reveal-line {
+  display: block;
+}
+
+/* Estado inicial del hero: oculto hasta que GSAP tome el control */
+.hero-line {
+  visibility: hidden;
+}
+
+html.hero-ready .hero-line {
+  visibility: visible;
+}

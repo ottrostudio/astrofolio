@@ -1,0 +1,221 @@
+---
+import { getCopy } from "@/data/copy";
+
+interface Props {
+  project: any;
+  nextProject: any;
+  lang?: string;
+}
+
+const { project, nextProject } = Astro.props;
+const lang = Astro.props.lang ?? "es";
+const t = getCopy(lang);
+---
+
+<article class="work-case">
+  {/* HERO */}
+  <section class="px-6 md:px-10 pt-32 md:pt-48 pb-16 md:pb-24">
+    <div class="flex items-baseline gap-6 mb-8">
+      <a
+        href={`/${lang}/work`}
+        class="micro text-muted hover:text-accent transition-colors"
+        data-reveal
+      >
+        ← {t.work.backToList}
+      </a>
+    </div>
+
+    <span class="micro text-muted block mb-6" data-reveal>
+      {project.year} — {project.category}
+    </span>
+
+    <h1
+      class="font-display text-[clamp(3rem,11vw,10rem)] leading-none uppercase"
+      data-reveal-lines
+    >
+      <span class="mask-line"
+        ><span class="reveal-line block">{project.name}</span></span
+      >
+    </h1>
+  </section>
+
+  {/* METADATA + LIVE */}
+  <section class="px-6 md:px-10 pb-16 md:pb-24">
+    <div
+      class="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-border pt-8"
+    >
+      <div data-reveal>
+        <span class="micro text-muted block mb-2">{t.work.client}</span>
+        <span class="text-base">{project.client}</span>
+      </div>
+      <div data-reveal>
+        <span class="micro text-muted block mb-2">{t.work.role}</span>
+        <span class="text-base">{project.role}</span>
+      </div>
+      <div data-reveal>
+        <span class="micro text-muted block mb-2">{t.work.duration}</span>
+        <span class="text-base">{project.duration}</span>
+      </div>
+      <div data-reveal>
+        <a
+          href={project.live}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group inline-flex items-center gap-3 micro hover:text-accent transition-colors"
+        >
+          <span>{t.work.viewLive}</span>
+          <span class="transition-transform group-hover:translate-x-1">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* IMAGEN HERO */}
+  <section class="px-6 md:px-10 pb-24 md:pb-32">
+    <div class="aspect-[16/9] rounded-sm overflow-hidden relative" data-reveal>
+      <div
+        class="absolute inset-[-10%] bg-gradient-to-br from-accent/30 via-transparent to-accent2/30"
+        data-parallax
+      >
+      </div>
+      <div class="absolute inset-0 flex items-center justify-center p-12">
+        <span
+          class="font-display text-[clamp(2rem,8vw,7rem)] leading-none text-text/10 uppercase text-center"
+        >
+          {project.name}
+        </span>
+      </div>
+    </div>
+  </section>
+
+  {/* CONTEXTO */}
+  <section class="px-6 md:px-10 pb-24 md:pb-32">
+    <div class="grid md:grid-cols-12 gap-8 md:gap-12">
+      <div class="md:col-span-3">
+        <span class="micro text-muted" data-reveal>01 — {t.work.context}</span>
+      </div>
+      <div class="md:col-span-9">
+        <p class="text-lg md:text-2xl leading-relaxed max-w-3xl" data-reveal>
+          {project.context}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* ENFOQUE */}
+  <section class="px-6 md:px-10 pb-24 md:pb-32">
+    <div class="grid md:grid-cols-12 gap-8 md:gap-12">
+      <div class="md:col-span-3">
+        <span class="micro text-muted" data-reveal>02 — {t.work.approach}</span>
+      </div>
+      <div class="md:col-span-9">
+        <p class="text-lg md:text-2xl leading-relaxed max-w-3xl" data-reveal>
+          {project.approach}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* DECISIONES */}
+  <section class="px-6 md:px-10 pb-24 md:pb-32">
+    <div class="grid md:grid-cols-12 gap-8 md:gap-12 mb-16 md:mb-24">
+      <div class="md:col-span-3">
+        <span class="micro text-muted" data-reveal>03 — {t.work.decisions}</span
+        >
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-16 md:gap-24">
+      {
+        project.decisions.map((decision, i) => (
+          <div
+            class="grid md:grid-cols-12 gap-8 md:gap-12 items-start"
+            data-reveal
+          >
+            <div class="md:col-span-3">
+              <span class="font-display text-[clamp(3rem,6vw,5rem)] leading-none text-accent">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+            </div>
+            <div class="md:col-span-9">
+              <h3 class="font-display text-[clamp(1.5rem,3vw,2.5rem)] leading-tight uppercase mb-4">
+                {decision.title}
+              </h3>
+              <p class="text-muted text-base md:text-lg leading-relaxed max-w-2xl">
+                {decision.text}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  {/* STACK */}
+  <section class="px-6 md:px-10 pb-24 md:pb-32">
+    <div class="grid md:grid-cols-12 gap-8 md:gap-12">
+      <div class="md:col-span-3">
+        <span class="micro text-muted" data-reveal>04 — {t.work.stack}</span>
+      </div>
+      <div class="md:col-span-9">
+        <ul class="flex flex-wrap gap-3" data-reveal-stagger>
+          {
+            project.stack.map((tech) => (
+              <li class="px-4 py-2 border border-border rounded-full micro">
+                {tech}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {/* RESULTADO */}
+  <section class="px-6 md:px-10 pb-24 md:pb-32">
+    <div class="grid md:grid-cols-12 gap-8 md:gap-12">
+      <div class="md:col-span-3">
+        <span class="micro text-muted" data-reveal>05 — {t.work.result}</span>
+      </div>
+      <div class="md:col-span-9">
+        <p class="text-lg md:text-2xl leading-relaxed max-w-3xl" data-reveal>
+          {project.result}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* SIGUIENTE PROYECTO */}
+  {
+    nextProject && (
+      <section class="px-6 md:px-10 py-24 md:py-32 border-t border-border">
+        <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-end">
+          <div class="md:col-span-3">
+            <span class="micro text-muted" data-reveal>
+              {t.work.nextProject}
+            </span>
+          </div>
+          <div class="md:col-span-9">
+            <a
+              href={`/${lang}/work/${nextProject.slug}`}
+              class="group block"
+              data-reveal
+            >
+              <h2 class="font-display text-[clamp(2.5rem,8vw,7rem)] leading-none uppercase group-hover:text-accent transition-colors mb-6">
+                <span class="mask-line">
+                  <span class="reveal-line block">{nextProject.name}</span>
+                </span>
+              </h2>
+              <span class="inline-flex items-center gap-3 micro group-hover:text-accent transition-colors">
+                <span>{nextProject.category}</span>
+                <span class="transition-transform group-hover:translate-x-1">
+                  →
+                </span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+    )
+  }
+</article>

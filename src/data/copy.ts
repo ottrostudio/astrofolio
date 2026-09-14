@@ -30,6 +30,70 @@ export const copy = {
       result: "Resultado",
       projects: [
         {
+          slug: "l-atelier-del-foc",
+          name: "L'Atelier del Foc",
+          year: "2026",
+          category: "Web",
+          client: "L'Atelier del Foc",
+          role: "Desarrollo",
+          duration: "6 semanas",
+          live: "https://latelierdelfoc.com",
+          context:
+            'L\'Atelier del Foc es un taller de arte fallero e ilustración que necesitaba pasar de Instagram a un portfolio profesional. El reto: posicionarse en búsquedas como "artista fallero" y "fallas artísticas", construir un archivo de obra y canalizar el contacto sin perder la comodidad de las redes.',
+          approach:
+            "Empezamos con una sesión para definir objetivos y auditar el material existente: obras, fotos, logotipos y redes. A partir de ahí, diseñamos un sistema visual que diera protagonismo absoluto a las obras, con una estructura clara para el archivo de fallas. La web se construyó en Astro para que cargue rápido y sea fácil de mantener por el propio artista sin depender de un CMS complejo.",
+          decisions: [
+            {
+              title: "Las obras como protagonistas",
+              text: "El cliente venía de Instagram, donde las obras compiten con filtros, stories y ruido visual. Decidimos que la web sería lo opuesto: fondo neutro, mucho espacio negativo y tipografía discreta. La obra manda, el diseño acompaña.",
+            },
+            {
+              title: "Archivo de fallas navegable por año",
+              text: "En lugar de una galería plana, organizamos las fallas por año y tipo. Esto convierte la web en un archivo histórico del taller, no solo en un portfolio. Es lo que diferencia a un artista con trayectoria de una cuenta de Instagram.",
+            },
+            {
+              title: "Contacto como puente, no como formulario",
+              text: "En lugar de meter un formulario genérico, la web canaliza el contacto directo a Instagram y email. Es donde el cliente está cómodo, donde ya tiene conversaciones activas, y donde puede mostrar más contexto de su trabajo.",
+            },
+          ],
+          stack: ["Figma", "Astro", "Markdown", "Vercel"],
+          result:
+            'La web está live desde agosto de 2026. En el primer mes recibió más visitas que las que el artista tenía en Instagram en el mismo periodo. Ahora aparece en búsquedas como "artista fallero Valencia" — algo impensable con solo Instagram. El artista gestiona su propio contenido sin depender de nadie.',
+          next: "two-world-backpackers",
+        },
+        {
+          slug: "two-world-backpackers",
+          name: "Two World Backpackers",
+          year: "2026",
+          category: "Branding + Rediseño web",
+          client: "Laura y Andrés",
+          role: "Desarrollo + Diseño",
+          duration: "2 meses",
+          live: "https://twoworldbackpackers.com",
+          context:
+            "Two World Backpackers es un blog de viajes y gastronomía con años de contenido. Llegaron con un WordPress a medio hacer, sin diseño atractivo y abandonado durante 1-2 años. Querían dar el salto a una web profesional, con identidad visual propia y un blog que pudiera escalar a un proyecto mayor.",
+          approach:
+            "Partimos de una auditoría de contenido y una nueva identidad visual: paleta, tipografía, design system. Después rehicimos la estructura de WordPress con Custom Post Types y ACF para que el blog pudiera crecer sin fricción, y les dimos formación para que publicaran sin depender de nadie.",
+          decisions: [
+            {
+              title: "Rehacer la identidad, no solo la web",
+              text: 'El WordPress estaba abandonado y la identidad no representaba el proyecto. En lugar de solo "mejorar el diseño", diseñamos una identidad visual completa desde cero: paleta, tipografía, sistema de componentes. La web ahora comunica lo que el proyecto es, no lo que era.',
+            },
+            {
+              title: "WordPress con Custom Post Types y ACF",
+              text: "El cliente quería seguir usando WordPress, pero necesitaba una estructura que soportara el crecimiento del blog. Implementamos Custom Post Types y ACF para que cada tipo de contenido tuviera su propia estructura, campos y plantillas. Publicar es ahora una experiencia ordenada, no un caos.",
+            },
+            {
+              title: "Formación como parte de la entrega",
+              text: "Entregar la web no era suficiente. Hicimos una sesión de formación para que Laura y Andrés pudieran gestionar su contenido con la nueva dinámica de trabajo. El cliente es autónomo desde el día 1, sin depender de mí para cada cambio.",
+            },
+          ],
+          stack: ["WordPress", "ACF", "PHP", "Tailwind"],
+          result:
+            "La web está live desde 2026. El proyecto pasó de un WordPress abandonado a una plataforma ordenada con identidad propia, contenido estructurado y un blog que puede crecer sin fricción. Laura y Andrés gestionan su propio contenido con autonomía total.",
+          next: "nova-coffee",
+        },
+        {
           slug: "nova-coffee",
           name: "Nova Coffee",
           year: "2026",
@@ -155,7 +219,7 @@ export const copy = {
           stack: ["Astro", "Tailwind", "Cloudinary", "Vercel"],
           result:
             "La web está live desde 2024 y es la principal herramienta de venta del estudio. Han aumentado un 40% las solicitudes de presupuesto.",
-          next: "nova-coffee",
+          next: "l-atelier-del-foc",
         },
       ],
     },
@@ -226,9 +290,9 @@ export const copy = {
       email: "hola@ottro.studio",
       socialsLabel: "Redes",
       socials: [
-        { label: "GitHub", url: "https://github.com" },
-        { label: "LinkedIn", url: "https://linkedin.com" },
-        { label: "X", url: "https://x.com" },
+        { label: "GitHub", url: "https://github.com/ottrostudio" },
+        { label: "Instagram", url: "https://instagram.com/ottro.studio" },
+        { label: "LinkedIn", url: "https://linkedin.com/in/ottrostudio" },
       ],
       location: "Madrid",
       year: "2026",
@@ -264,6 +328,70 @@ export const copy = {
       stack: "Stack",
       result: "Result",
       projects: [
+        {
+          slug: "l-atelier-del-foc",
+          name: "L'Atelier del Foc",
+          year: "2026",
+          category: "Web",
+          client: "L'Atelier del Foc",
+          role: "Development",
+          duration: "6 weeks",
+          live: "https://latelierdelfoc.com",
+          context:
+            'L\'Atelier del Foc is a fallas art and illustration workshop that needed to move from Instagram to a professional portfolio. The challenge: to rank for searches like "fallas artist" and "Valencia fallas art", build an archive of their work, and channel contact without losing the convenience of social media.',
+          approach:
+            "We started with a session to define goals and audit existing material: artworks, photos, logos, and social media. From there, we designed a visual system that gave absolute prominence to the artworks, with a clear structure for the fallas archive. The site was built with Astro so it loads fast and is easy for the artist to maintain without depending on a complex CMS.",
+          decisions: [
+            {
+              title: "The artworks as protagonists",
+              text: "The client came from Instagram, where artworks compete with filters, stories, and visual noise. We decided the website would be the opposite: neutral background, lots of negative space, and discreet typography. The artwork leads, the design follows.",
+            },
+            {
+              title: "A fallas archive navigable by year",
+              text: "Instead of a flat gallery, we organized the fallas by year and type. This turns the site into a historical archive of the workshop, not just a portfolio. It's what separates an artist with a career from an Instagram account.",
+            },
+            {
+              title: "Contact as a bridge, not a form",
+              text: "Instead of a generic contact form, the site channels direct contact to Instagram and email. That's where the client is comfortable, where he already has active conversations, and where he can show more context about his work.",
+            },
+          ],
+          stack: ["Figma", "Astro", "Markdown", "Vercel"],
+          result:
+            'The site has been live since August 2026. In its first month, it received more visits than the artist had on Instagram in the same period. It now ranks for searches like "fallas artist Valencia" — unthinkable with Instagram alone. The artist manages his own content without depending on anyone.',
+          next: "two-world-backpackers",
+        },
+        {
+          slug: "two-world-backpackers",
+          name: "Two World Backpackers",
+          year: "2026",
+          category: "Branding + Web redesign",
+          client: "Laura & Andrés",
+          role: "Development + Design",
+          duration: "2 months",
+          live: "https://twoworldbackpackers.com",
+          context:
+            "Two World Backpackers is a travel and food blog with years of content. They came with a half-finished WordPress site, no attractive design, and abandoned for 1-2 years. They wanted to jump to a professional website, with their own visual identity and a blog that could scale into something bigger.",
+          approach:
+            "We started with a content audit and a new visual identity: palette, typography, design system. Then we rebuilt the WordPress structure with Custom Post Types and ACF so the blog could grow without friction, and trained them to publish without depending on anyone.",
+          decisions: [
+            {
+              title: "Rebuilding the identity, not just the site",
+              text: 'The WordPress site was abandoned and the identity didn\'t represent the project. Instead of just "improving the design", we created a complete visual identity from scratch: palette, typography, component system. The site now communicates what the project is, not what it was.',
+            },
+            {
+              title: "WordPress with Custom Post Types and ACF",
+              text: "The client wanted to keep using WordPress, but needed a structure that supported the growth of the blog. We implemented Custom Post Types and ACF so each content type had its own structure, fields, and templates. Publishing is now an organized experience, not chaos.",
+            },
+            {
+              title: "Training as part of the delivery",
+              text: "Delivering the site wasn't enough. We held a training session so Laura and Andrés could manage their content with the new workflow. The client is autonomous from day 1, without depending on me for every change.",
+            },
+          ],
+          stack: ["WordPress", "ACF", "PHP", "Tailwind"],
+          result:
+            "The site has been live since 2026. The project went from an abandoned WordPress to an organized platform with its own identity, structured content, and a blog that can grow without friction. Laura and Andrés manage their own content with total autonomy.",
+          next: "nova-coffee",
+        },
         {
           slug: "nova-coffee",
           name: "Nova Coffee",
@@ -390,7 +518,7 @@ export const copy = {
           stack: ["Astro", "Tailwind", "Cloudinary", "Vercel"],
           result:
             "The site has been live since 2024 and is the studio's main sales tool. They've seen a 40% increase in quote requests.",
-          next: "nova-coffee",
+          next: "l-atelier-del-foc",
         },
       ],
     },
@@ -456,9 +584,9 @@ export const copy = {
       email: "hola@ottro.studio",
       socialsLabel: "Social",
       socials: [
-        { label: "GitHub", url: "https://github.com" },
-        { label: "LinkedIn", url: "https://linkedin.com" },
-        { label: "X", url: "https://x.com" },
+        { label: "GitHub", url: "https://github.com/ottrostudio" },
+        { label: "Instagram", url: "https://instagram.com/ottro.studio" },
+        { label: "LinkedIn", url: "https://linkedin.com/in/ottrostudio" },
       ],
       location: "Madrid",
       year: "2026",

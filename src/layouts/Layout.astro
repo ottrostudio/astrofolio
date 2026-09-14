@@ -5,10 +5,15 @@ import MobileMenu from "@/components/MobileMenu.astro";
 
 interface Props {
   title?: string;
+  description?: string;
   lang?: string;
 }
 
-const { title = "OTTRO.studio", lang = "es" } = Astro.props;
+const {
+  title = "OTTRO.studio",
+  description = "Desarrollo web y diseño de marca. Construyo productos digitales con criterio visual desde Madrid.",
+  lang = "es",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -17,6 +22,17 @@ const { title = "OTTRO.studio", lang = "es" } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark" />
+    <meta property="og:image" content="https://ottro.studio/og-image.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://ottro.studio/og-image.webp" />
+    <link rel="icon" href="/logo.svg" type="image/svg+xml" />
     <title>{title}</title>
   </head>
   <body>
